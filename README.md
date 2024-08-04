@@ -114,3 +114,25 @@ The `<section>` element is the most generic of all the semantic elements. It out
 There exist six headings: `<h1...6>`. The top-level heading should be included inside the site banner as `<h1>`, then each heading down the hierarchy of semantic elements should increment the level. Levels should not be skipped.
 
 It's important use elements based on their meaning, rather than the CSS that the user-agent stylesheet applies by default. Any element can be made to look a certain way with custom CSS. When working with HTML, focus on proper semantics.
+
+## Attributes
+
+Source: https://web.dev/learn/html/attributes
+
+Most attributes are key-value pairs that are placed in an element's opening tag, where the value should be always be quoted.
+
+Boolean attributes should not include a value component. If the boolean attribute is present, then it is considered `true`. If it is missing, then it is considered `false`. Boolean attributes technically can include a value, but that value will simply be ignored and the expression will result in `true`. As a side note, when toggling boolean attributes in JavaScript, the attribute itself should be added or removed from the element entirely instead of changing its value. An example of a boolean attribute is `readonly`.
+
+Enumerated attributes only accept a subset of valid values. If the attribute is missing, its value is missing, or its value is invalid, then some default will be used. The default value in each of these cases may not be the same. Needless to say, always specify a valid enumeration or don't include the attribute at all if it's not important. An example of an enumerated attribute is `type` in an `<input>` tag.
+
+The global `id` attribute is extremely important to scripting, links, selectability, labels, accessibility, etc. Ids must be unique to the document.
+
+An `href` may contain the "fragment" of a path, which points to a specific location on a webpage, rather than just the webpage itself. For example, `href="#about-us"` links to the element on the current page that has `id="about-us"`. The special fragment specifiers `#` and `#top` both link to the top of the current page.
+
+The global `class` attribute is useful as a generic and easy way to target a group of elements for styling with CSS. Separate multiple class names with a space.
+
+The global `style` attribute can be used for inline styling, however it is not recommended.
+
+The global `contenteditable` attribute is powerful. It makes an element editable by the user. This can, for example, be used to make a user interface for editing the current page's styling.
+
+Custom attributes can be used for storing metadata as part of an HTML element. These should start with `data-` so that certain APIs can be used and to avoid name collisions with non-custom attributes, however this prefix isn't technically required.
