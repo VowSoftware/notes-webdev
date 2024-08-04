@@ -81,10 +81,36 @@ Different sites expect slightly different formatting. Here are a few examples of
 
 Source: https://web.dev/learn/html/semantic-html
 
-When the browser parses HTML, it builds the Document Object Model (DOM), the CSS Object Model (CSSOM), ad the Accessibility Object Model (AOM). The AOM is a node tree similar to the DOM, but is focused on semantics rather than generic element and text structure. Modern semantic elements like `<header>`, `<section>`, and `<nav>` have a major positive affect on the AOM over non-semantic elements like `<div>` and `<span>`.
+When the browser parses HTML, it builds the Document Object Model (DOM), the CSS Object Model (CSSOM), and the Accessibility Object Model (AOM). The AOM is a node tree similar to the DOM, but is focused on semantics rather than generic element and text structure. Modern semantic elements like `<header>`, `<section>`, and `<nav>` have a major positive affect on the AOM over non-semantic elements like `<div>` and `<span>`.
 
 The Web Hypertext Application Technology Working Group (WHATWG) maintain the living HTML standard, while the Accessible Rich Internet Applications (ARIA) standard provides guidelines on how to increase accessibility of webpages.
 
 The `role` attribute, often called an ARIA role, defines the role or semantics of any element. For example, `<p role="button">` hints to the AOM that this paragraph should be semantically interpretted as a button. Instead of using roles in this way however, the proper HTML element should be used that has the appropriate implicit role. For example, using `<button>` is better than using `role="button"` because it has an implicit role and comes with special button-related functionality, among other advantages.
 
 When building a webpage, always take the time to think about which HTML element most closely matches its intended semantics. This reduces the need for future refactoring, improves CSS selectability, improves accessibility and in come cases SEO optimization, etc.
+
+## Headings and Sections
+
+Source: https://web.dev/learn/html/headings-and-sections
+
+Semantic landmarks are defined as a set a HTML tags and roles that break the webpage into distinct areas, such as the site header, site footer, major articles, etc. These are specifically marked as "landmarks" in the AOM.
+
+The `<header>` element is only a landmark if it is the site header, which takes on the role `banner`. Otherwise, it's a nested header and is treated in the AOM as a simple heading to an article or something similar.
+
+The `<nav>` element is for navigation. If it's nested inside the banner, then it's considered the site navigation. Otherwise, it's internal navigation to some subsection of the webpage.
+
+The `<footer>` element is only a landmark if it is the site footer, which takes on the role `contentinfo`. Otherwise, it's nested as is only relevant to its parent section. It's common to see `<address>` in the site footer, which contains contact information, but not physical addresses.
+
+It's clear the these semantic HTML elements change meaning based on where they're located in the document. This has an affect on not only the AOM, but also search engines, CSS and JavaScript selectability, etc.
+
+There should only be a single `<main>` element per document. It identifies the actual content of the webpage, such as the listing of news articles on a news site, the vertical list of posts on X, etc.
+
+The `<aside>` element is for content that is only tangentially related to whatever is inside the `<main>` element, however it can also be nested inside `<main>` if it's only relevant to a subsection of content. It takes on the role `complementary`.
+
+The `<article>` element is interesting. It's ideally meant to be used as a reusable piece of content. There shouldn't be a refactoring problem if the entire element were to be moved or copied somewhere else on the site, because the article itself is self-contained and includes all of the necessary information to be coherent regardless of where it might appear. For example, a post on Facebook can appear anywhere in the timeline without losing any context.
+
+The `<section>` element is the most generic of all the semantic elements. It outlines a region that is logically consistent, but not necessarily an individual `<article>`. It probably contains its own header, may contain extra navigation, may contain a series of articles, etc. For example, on a news site, the categories of "World News" and "Technology News" might be two different sections.
+
+There exist six headings: `<h1...6>`. The top-level heading should be included inside the site banner as `<h1>`, then each heading down the hierarchy of semantic elements should increment the level. Levels should not be skipped.
+
+It's important use elements based on their meaning, rather than the CSS that the user-agent stylesheet applies by default. Any element can be made to look a certain way with custom CSS. When working with HTML, focus on proper semantics.
