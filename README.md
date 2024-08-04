@@ -51,3 +51,28 @@ There are two attributes to change the default blocking behavior of scripts. The
 The `target="_blank"` attribute is mainly useful for opening links in a new tab.
 
 HTML supports comments using the following syntax: `<!-- This is a comment -->`.
+
+## Metadata
+
+Source: https://web.dev/learn/html/metadata
+
+The `<meta>` tag typically uses either the `http-equiv` or `name` attribute to specify the type of metadata, followed by the `content` attribute that fills in the details. If the nature of the metadata matches a field that would normally be found in an HTTP header, then `http-equiv` is used. Otherwise, `name` is used.
+
+Most metadata elements using `http-equiv` are not very useful, however `http-equiv="content-security-policy"` is something to look into for security purposes. Technically, the `<meta charset="utf-8">` element was once a `http-equiv`, but it was so often misspelled that `charset` as an attribute was standardized.
+
+The `name="keywords"` metadata is useless nowadays due partly to past search engine optimization (SEO) abuse. This is similar to how YouTube themselves recommend against adding keywords to YouTube videos when uploading, unless the name of the topic of the video is often misspelled.
+
+The `name="description"` metadata is displayed prominently in several places and is important for SEO. It should be brief, comprehensive, and insightful.
+
+All webpages are indexed by search engines by default, however `<meta name="robots" content="noindex, nofollow">` can be used to opt out. The `noindex` value refers to the current page, while the `nofollow` value refers to all pages that can be reached via hyperlink on the current page.
+
+Some browsers support custom colors for areas like the title bar and tab bar using the following: `<meta name="theme-color" content="#226DAA">`.
+
+Open Graph is a protocol created by Facebook that enables a fancy way of presenting links to external sites. For example, when posting a link to a YouTube video on X, a medium-sized card will appear that contains an image, a title, and a description. The entire card is a link to the video. Many social media sites use the Open Graph protocol to achieve this effect.
+
+When a link is posted, the host site looks for a few special `<meta>` elements on the targetted site to populate the card. If not found, then the information is pulled from elements like the `<title>` and `<meta name="description">`.
+
+Different sites expect slightly different formatting. Here are a few examples of what the protocol is looking for:  
+`<meta property="og:title" content="Example Title">`  
+`<meta property="og:image" content="http://www.example.com/image.png">`  
+`<meta name="twitter:url" content="https://www.example.com/">`
