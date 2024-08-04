@@ -76,3 +76,15 @@ Different sites expect slightly different formatting. Here are a few examples of
 `<meta property="og:title" content="Example Title">`  
 `<meta property="og:image" content="http://www.example.com/image.png">`  
 `<meta name="twitter:url" content="https://www.example.com/">`
+
+## Semantic HTML
+
+Source: https://web.dev/learn/html/semantic-html
+
+When the browser parses HTML, it builds the Document Object Model (DOM), the CSS Object Model (CSSOM), ad the Accessibility Object Model (AOM). The AOM is a node tree similar to the DOM, but is focused on semantics rather than generic element and text structure. Modern semantic elements like `<header>`, `<section>`, and `<nav>` have a major positive affect on the AOM over non-semantic elements like `<div>` and `<span>`.
+
+The Web Hypertext Application Technology Working Group (WHATWG) maintain the living HTML standard, while the Accessible Rich Internet Applications (ARIA) standard provides guidelines on how to increase accessibility of webpages.
+
+The `role` attribute, often called an ARIA role, defines the role or semantics of any element. For example, `<p role="button">` hints to the AOM that this paragraph should be semantically interpretted as a button. Instead of using roles in this way however, the proper HTML element should be used that has the appropriate implicit role. For example, using `<button>` is better than using `role="button"` because it has an implicit role and comes with special button-related functionality, among other advantages.
+
+When building a webpage, always take the time to think about which HTML element most closely matches its intended semantics. This reduces the need for future refactoring, improves CSS selectability, improves accessibility and in come cases SEO optimization, etc.
