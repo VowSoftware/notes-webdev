@@ -136,3 +136,21 @@ The global `style` attribute can be used for inline styling, however it is not r
 The global `contenteditable` attribute is powerful. It makes an element editable by the user. This can, for example, be used to make a user interface for editing the current page's styling.
 
 Custom attributes can be used for storing metadata as part of an HTML element. These should start with `data-` so that certain APIs can be used and to avoid name collisions with non-custom attributes, however this prefix isn't technically required.
+
+## Text Basics
+
+Source: https://web.dev/learn/html/text-basics
+
+The line break `<br>` element should be used for oddities like poetry, citations, etc. To space out elements like paragraphs, use CSS instead of inserting extra HTML elements.
+
+Quotations come in two styles: blockquotes and inline quotations. Blockquotes `<blockquote>` are meant to be "lifted out" of the normal flow of a paragraph. Inline quotes `<q>` are meant to flow along with text in a paragraph.
+
+If a quote comes from an external source, then it should be cited. The `<cite>` element should contain the name of a work, rather than someone's name or their contact information. If a quote needs to be cited but you don't want the citation to be visible as its own HTML element, then use the `cite` attribute in the `<blockquote>` or `<q>` element instead.
+
+If a quote is in another language, remember to set the language with the `lang` attribute. Surprisingly, this tells voice software like Siri to use the proper pronunciation, and changes the quotation marks to match the locale.
+
+Escape characters are necessary to display text that conflicts with significant HTML markup, such as `<`, `>`, `&`, and `"`. Unlike many programming languages where characters can be escaped with a simple prefix, HTML uses a prefix surrounded by `&` and `;`. For example: `&lt;`, `&gt;`, `&amp;`, and `&quot;`.
+
+Escape sequences in HTML are also called "entities" because they can be used for more than just displaying reserved characters. A few common entities are `&copy;` for copyright, `&trade;` for trademark, and `&nbsp;` for non-breaking space, which can be used as a space that will not break the text onto a new line.
+
+Any Unicode character can be printed using its codepoint. For example, `<` can be displayed with `&lt;`, `&#60;`, or `&#x3C`. If `<meta charset="utf-8">` is set, then Unicode characters can of course be printed without the assistance of escape sequences.
