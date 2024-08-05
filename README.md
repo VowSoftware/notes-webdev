@@ -1,8 +1,21 @@
 # Webdev Notes
 
-Notes for modern web development.
+Notes for modern web development. Material is sourced from https://web.dev/ and summarized into what I consider to be the most notable or relevant information to my personal learning and use cases.
 
 Please click the ☆ button on GitHub if this repository is helpful. Thank you!
+
+## Index
+
+### Learn HTML
+
+[Overview of HTML](#overview-of-html)  
+[Document Structure](#document-structure)  
+[Metadata](#metadata)  
+[Semantic HTML](#semantic-html)  
+[Headings and Sections](#headings-and-sections)  
+[Attributes](#attributes)  
+[Text Basics](#text-basics)  
+[Links](#links)
 
 ## Overview of HTML
 
@@ -154,3 +167,8 @@ Escape characters are necessary to display text that conflicts with significant 
 Escape sequences in HTML are also called "entities" because they can be used for more than just displaying reserved characters. A few common entities are `&copy;` for copyright, `&trade;` for trademark, and `&nbsp;` for non-breaking space, which can be used as a space that will not break the text onto a new line.
 
 Any Unicode character can be printed using its codepoint. For example, `<` can be displayed with `&lt;`, `&#60;`, or `&#x3C`. If `<meta charset="utf-8">` is set, then Unicode characters can of course be printed without the assistance of escape sequences.
+
+## Links
+
+Source: https://web.dev/learn/html/links
+
