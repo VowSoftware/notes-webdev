@@ -172,3 +172,10 @@ Any Unicode character can be printed using its codepoint. For example, `<` can b
 
 Source: https://web.dev/learn/html/links
 
+The anchor element `<a>` with the hyperlink attribute `href` makes up a clickable link. A link may be absolute or relative. If absolute, then a protocol and domain name should be specified, such as `https://example.com`. If relative, then the link is bound to the current website.
+
+The content of `<a>` should briefly describe the destination of the link and nothing else. It is important to give complete context to the user about where a link might take them. In line with this, use the `external` attribute if the link directs the user to an external site.
+
+Links should also be styled differently from surrounding text. Include an `alt` attribute if the link is an image or some resource that has a chance to not load properly.
+
+It is not recommended to include a link insde of some interactable element, or vice versa. Interactions inside interactions can make for a poor user experience. For example, don't place a `<button>` inside a `<a>`.
