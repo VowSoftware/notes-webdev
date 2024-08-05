@@ -15,7 +15,9 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Headings and Sections](#headings-and-sections)  
 [Attributes](#attributes)  
 [Text Basics](#text-basics)  
-[Links](#links)
+[Links](#links)  
+[Lists](#lists)  
+[Navigation](#navigation)
 
 ## Overview of HTML
 
@@ -193,3 +195,15 @@ The `<li>` element can have the `value` attribute, which sets the list item's or
 Although many elements have these stylistic attributes, it is important to consider if, for example, the ordinal should be a decimal number or roman numeral number for semantic reasons or just for stylistic reasons. Remember that HTML elements and attributes are generally supposed to be focused on semantics, while CSS should responsibility for styling.
 
 Description lists `<dl>` contain description terms `<dt>` and description definitions `<dd>`. These terms and definitions should be placed adjacent to each other, rather than nested. The relationship between terms and definitions is many-to-one or one-to-many. Description lists can be used for people, technical terms, or anything else that fits the key-value nature. It is recommended to wrap corresponding groups of definitions in a `<div>` element if they should be styled as a single unit, which means it is valid to sometimes see a `<dl>` where its immediate children are not restricted only to `<dt>` and `<dd>`.
+
+## Navigation
+
+Source: https://web.dev/learn/html/navigation
+
+Local navigation refers to links that go to somewhere on the same site, but are not persistent across every page on the site. For example, an inline link in the middle of a paragraph that jumps to the top of a related page, or a table of contents that links to different parts of the current page.
+
+Global navigation refers to links that are always available to click on, regardless of which page is currently loaded. For example, a list of high-level links in the site banner or footer.
+
+A breadcrumb refers to a series of links that show the hierarchy of the current page in relation to the root of the website, or the pages that the user navigated to in order to reach the current page.
+
+It is very important for usability that site navigation, both global and local, can be reached with as few clicks as possible. It should not be difficult to get to where the user wants to go.
