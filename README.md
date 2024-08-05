@@ -179,3 +179,17 @@ The content of `<a>` should briefly describe the destination of the link and not
 Links should also be styled differently from surrounding text. Include an `alt` attribute if the link is an image or some resource that has a chance to not load properly.
 
 It is not recommended to include a link insde of some interactable element, or vice versa. Interactions inside interactions can make for a poor user experience. For example, don't place a `<button>` inside a `<a>`.
+
+## Lists
+
+Source: https://web.dev/learn/html/lists
+
+Unordered lists `<ul>` should be used when order isn't significant. Use list items `<li>` as immediate children elements.
+
+Ordered lists `<ol>` should be used when order is significant. Use list items `<li>` as immediate children elements. The `type` attribute can be used to swap the ordinals with something else, such as letters or roman numerals. The `reverse` boolean attribute reverses the ordering. The `start` attribute specifies the starting ordinal of the list.
+
+The `<li>` element can have the `value` attribute, which sets the list item's ordinal to that value. The subsequent list items will then continue from that value.
+
+Although many elements have these stylistic attributes, it is important to consider if, for example, the ordinal should be a decimal number or roman numeral number for semantic reasons or just for stylistic reasons. Remember that HTML elements and attributes are generally supposed to be focused on semantics, while CSS should responsibility for styling.
+
+Description lists `<dl>` contain description terms `<dt>` and description definitions `<dd>`. These terms and definitions should be placed adjacent to each other, rather than nested. The relationship between terms and definitions is many-to-one or one-to-many. Description lists can be used for people, technical terms, or anything else that fits the key-value nature. It is recommended to wrap corresponding groups of definitions in a `<div>` element if they should be styled as a single unit, which means it is valid to sometimes see a `<dl>` where its immediate children are not restricted only to `<dt>` and `<dd>`.
