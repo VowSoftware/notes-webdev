@@ -17,7 +17,8 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Text Basics](#text-basics)  
 [Links](#links)  
 [Lists](#lists)  
-[Navigation](#navigation)
+[Navigation](#navigation)  
+[Tables](#tables)
 
 ## Overview of HTML
 
@@ -207,3 +208,17 @@ Global navigation refers to links that are always available to click on, regardl
 A breadcrumb refers to a series of links that show the hierarchy of the current page in relation to the root of the website, or the pages that the user navigated to in order to reach the current page.
 
 It is very important for usability that site navigation, both global and local, can be reached with as few clicks as possible. It should not be difficult to get to where the user wants to go.
+
+## Tables
+
+Source: https://web.dev/learn/html/tables
+
+The `<table>` element should be used for tabular 2D data being compared, sorted, calculated, or cross-referenced. For use cases such as a grid of images, a CSS grid should be used instead.
+
+The `<caption>` element should be the first nested element inside a table. It serves as the table's title. The `aria-describedby` attribute can be used on surrounding paragraphs that describe the table or state what its purpose is. Another option is to nest the table in a `<figure>` element, along with a `<figcaption>` element.
+
+Tables are made up of three sections after the caption: `<thead>`, `<tbody>`, and `<tfoot>`, or any combination of the three. Each section should contain rows `<tr>` of cells. Each row of cells should contain header cells `<th>` if inside the `<thead>` section, otherwise data cells `<td>` if inside the `<tbody>` or `<tfoot>` sections.
+
+The `rowspan` and `colspan` attributes can be used to merge cells across rows and columns.
+
+Only use `<table>` for data that you could see yourself presenting in a spreadsheet at a business meeting. Otherwise, consider other approaches like CSS grid or description lists. Tables are more complicated to work with and require more work and detail in the AOM. They weren't designed to handle things like image galleries or lists.
