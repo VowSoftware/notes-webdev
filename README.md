@@ -19,6 +19,7 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Lists](#lists)  
 [Navigation](#navigation)  
 [Tables](#tables)
+[Forms](#forms)
 
 ## Overview of HTML
 
@@ -187,9 +188,9 @@ It is not recommended to include a link insde of some interactable element, or v
 
 Source: https://web.dev/learn/html/lists
 
-Unordered lists `<ul>` should be used when order isn't significant. Use list items `<li>` as immediate children elements.
+Unordered lists `<ul>` should be used when order isn't significant. Use list items `<li>` as immediate child elements.
 
-Ordered lists `<ol>` should be used when order is significant. Use list items `<li>` as immediate children elements. The `type` attribute can be used to swap the ordinals with something else, such as letters or roman numerals. The `reverse` boolean attribute reverses the ordering. The `start` attribute specifies the starting ordinal of the list.
+Ordered lists `<ol>` should be used when order is significant. Use list items `<li>` as immediate child elements. The `type` attribute can be used to swap the ordinals with something else, such as letters or roman numerals. The `reverse` boolean attribute reverses the ordering. The `start` attribute specifies the starting ordinal of the list.
 
 The `<li>` element can have the `value` attribute, which sets the list item's ordinal to that value. The subsequent list items will then continue from that value.
 
@@ -222,3 +223,31 @@ Tables are made up of three sections after the caption: `<thead>`, `<tbody>`, an
 The `rowspan` and `colspan` attributes can be used to merge cells across rows and columns.
 
 Only use `<table>` for data that you could see yourself presenting in a spreadsheet at a business meeting. Otherwise, consider other approaches like CSS grid or description lists. Tables are more complicated to work with and require more work and detail in the AOM. They weren't designed to handle things like image galleries or lists.
+
+## Forms
+
+Source: https://web.dev/learn/html/forms
+
+When data needs to be inputted by the user, validated, and sent to a server for processing, use the `<form>` element. The `action` attribute specifies the URL that processes the submitted data, which is the current URL if omitted. The `method` the attribute specifies the HTTP method used.
+
+Form controls are widgets that make up the form. Each control that needs processing should have a `name` attribute. If for some reason a control should be placed outside the `<form>` element, use the `form` attribute to specify the id of the form that the control belongs to.
+
+The `GET` HTTP method appends form data to the `action` URL as name-value pairs. The `POST` HTTP method appends form data to the body of the HTTP request, for lengthy and secure submissions.
+
+Many form controls can override attributes set on the parent `<form>` element. These attributes start with the prefix `form`, such as `formaction`, `formmethod`, etc.
+
+When a form is submitted, all controls that have a `name` and `value` are sent. There are some controls that will consider inner text content as their value, if the `value` attribute is not set on the tag.
+
+Radio buttons within a group should have the same name. There is a "only-one-can-be-selected" rule to form controls with the same name, which creates the effect of only being able to select one radio button. The `checked` attribute will select a button by default. The `required` attribute can be added to any radio button in a group to force the user to make a selection before submitting. It is best practice to always inform the user when input or a selection is required, regardless of the control `type`.
+
+The `<label>` element associates text content with a control. This makes it easier to click on the control and gives accessibility information about what the control might expect as an input. Use the `for` attribute to link the `<label>` with its corresponding control, or alternatively nest the control within the `<label>` element.
+
+For groups of radio buttons or checkboxes, surround the entire group in a `<fieldset>` element, then use the `<legend>` element as its first child, which acts as a description for the entire group.
+
+Try to use the input `type` that best matches your use case. For example, if inputting a telephone number, use `type="tel"`. If inputting an email, use `type="email"`. The keyboard displayed on mobile devices, and perhaps other behaviors, will be different.
+
+Forms can be validated on the client before being sent to the server. One thing to note is that CSS pseudoclasses will update elements as their validity changes in realtime, whereas the form validation itself will not trigger until the user presses the `<button type="submit">` again.
+
+Validation attributes include `required`, `pattern`, `max`, `min`, and `maxLength`. Max length is known to feel frustrating for users, so it may be better to indicate "remaining characters" in a paragraph or an `<output>` element, which is meant to display the result of a calculation from a user input.
+
+Remember to validate form data on both the client and the server. Client code can be edited or malicious. Client-side validation should be used as a gentle guide for clarification.
