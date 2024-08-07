@@ -1,6 +1,8 @@
 # Webdev Notes
 
-Notes for modern web development. Material is sourced from https://web.dev/ and summarized into what I consider to be the most notable or relevant information to my personal learning and use cases.
+Notes for modern web development.
+
+Material is sourced from https://web.dev/ and summarized into what I consider to be the most notable or relevant information to my personal learning and use cases.
 
 Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 
@@ -18,8 +20,9 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Links](#links)  
 [Lists](#lists)  
 [Navigation](#navigation)  
-[Tables](#tables)
-[Forms](#forms)
+[Tables](#tables)  
+[Forms](#forms)  
+[Images](#images)
 
 ## Overview of HTML
 
@@ -228,7 +231,7 @@ Only use `<table>` for data that you could see yourself presenting in a spreadsh
 
 Source: https://web.dev/learn/html/forms
 
-When data needs to be inputted by the user, validated, and sent to a server for processing, use the `<form>` element. The `action` attribute specifies the URL that processes the submitted data, which is the current URL if omitted. The `method` the attribute specifies the HTTP method used.
+When data needs to be inputted by the user, validated, and sent to a server for processing, use the `<form>` element. The `action` attribute specifies the URL that processes the submitted data, which is the current URL if omitted. The `method` attribute specifies the HTTP method used.
 
 Form controls are widgets that make up the form. Each control that needs processing should have a `name` attribute. If for some reason a control should be placed outside the `<form>` element, use the `form` attribute to specify the id of the form that the control belongs to.
 
@@ -236,7 +239,7 @@ The `GET` HTTP method appends form data to the `action` URL as name-value pairs.
 
 Many form controls can override attributes set on the parent `<form>` element. These attributes start with the prefix `form`, such as `formaction`, `formmethod`, etc.
 
-When a form is submitted, all controls that have a `name` and `value` are sent. There are some controls that will consider inner text content as their value, if the `value` attribute is not set on the tag.
+When a form is submitted, all controls that have a `name` and `value` are sent. There are some controls that will consider inner text content as their value, if the `value` attribute is omitted.
 
 Radio buttons within a group should have the same name. There is a "only-one-can-be-selected" rule to form controls with the same name, which creates the effect of only being able to select one radio button. The `checked` attribute will select a button by default. The `required` attribute can be added to any radio button in a group to force the user to make a selection before submitting. It is best practice to always inform the user when input or a selection is required, regardless of the control `type`.
 
@@ -251,3 +254,19 @@ Forms can be validated on the client before being sent to the server. One thing 
 Validation attributes include `required`, `pattern`, `max`, `min`, and `maxLength`. Max length is known to feel frustrating for users, so it may be better to indicate "remaining characters" in a paragraph or an `<output>` element, which is meant to display the result of a calculation from a user input.
 
 Remember to validate form data on both the client and the server. Client code can be edited or malicious. Client-side validation should be used as a gentle guide for clarification.
+
+## Images
+
+Source: https://web.dev/learn/html/images
+
+As usual, if an image is stylistic in nature, then it should be added with CSS. If it is semantic in nature and part of the structure of the page, then it should be added with HTML.
+
+The `<img>` element requires a `src` attribute for the filename. The `alt` attribute should be used as a substitute if the image cannot be loaded, and for accessibility reasons.
+
+Alternative text should be as concise as possible, and only include necessary information based on the context of the image on the page. Don't repeat information in the alt text that is already stated elsewhere. For example, a purely decorative image should have `alt=""`. An image of a graph should have alt text that describes what can be learned from the graph, not what the graph looks like. An image of a standard icon, like a magnifying glass, should have `alt="Search"`. Never include "An image of..." in the alt text because it's already known that an image is supposed to exist there.
+
+The `<picture>` element can be used to specify alternative versions of an image based on resolution and viewport size. Its children should include a list of `<source>` elements, which specify a single option for an image along with a media query, and an `<img>` element, which is the default if none of the other options are good enough. The `srcset` attribute can alternatively be used on the `<img>` element, which achieves a similar result.
+
+The `width` and `height` attributes should be included on the `<img>` element to avoid content-shifting as the image is fetched from the server and painted onto the page.
+
+The `loading` attribute is by default set to `eager`, which loads the image alongside the rest of the page. This may result in longer loading times for the user, and download potentially unnecessary data. Lazy loading `lazy` can be used to only load images that are likely to be displayed, which is determined based on the location of the user's viewport while scrolling down the page.
