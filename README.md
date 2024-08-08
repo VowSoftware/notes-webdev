@@ -22,7 +22,8 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Navigation](#navigation)  
 [Tables](#tables)  
 [Forms](#forms)  
-[Images](#images)
+[Images](#images)  
+[Audio and Video](#audio-and-video)
 
 ## Overview of HTML
 
@@ -270,3 +271,13 @@ The `<picture>` element can be used to specify alternative versions of an image 
 The `width` and `height` attributes should be included on the `<img>` element to avoid content-shifting as the image is fetched from the server and painted onto the page.
 
 The `loading` attribute is by default set to `eager`, which loads the image alongside the rest of the page. This may result in longer loading times for the user, and download potentially unnecessary data. Lazy loading `lazy` can be used to only load images that are likely to be displayed, which is determined based on the location of the user's viewport while scrolling down the page.
+
+## Audio and Video
+
+Source: https://web.dev/learn/html/audio-video
+
+The `<video>` element embeds a video on the webpage. It should include the `controls` attribute for basic controls any user would expect, like volume and fullscreen. The `poster` attribute specifies a thumbnail, which is shown until the video begins playing. The `muted`, `autoplay`, and `loop` attributes are also available, but some browsers will only `autoplay` if `muted` is also enabled, in order to avoid a poor user experience.
+
+The `<video>` element can either have a `src` attribute, or wrap a list of `<source>` elements, similar to the `<picture>` element. The `<track>` element also exists for things like subtitles, chapters, and other metadata.
+
+The `<audio>` element has many of the same considerations as the `<video>` element. Videos can play audio content, but audio cannot play video content. Regardless, `<audio>` should still be used for semantic reasons.
