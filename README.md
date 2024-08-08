@@ -24,6 +24,7 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Forms](#forms)  
 [Images](#images)  
 [Audio and Video](#audio-and-video)
+[Other Inline Text Elements](#other-inline-text-elements)
 
 ## Overview of HTML
 
@@ -281,3 +282,35 @@ The `<video>` element embeds a video on the webpage. It should include the `cont
 The `<video>` element can either have a `src` attribute, or wrap a list of `<source>` elements, similar to the `<picture>` element. The `<track>` element also exists for things like subtitles, chapters, and other metadata.
 
 The `<audio>` element has many of the same considerations as the `<video>` element. Videos can play audio content, but audio cannot play video content. Regardless, `<audio>` should still be used for semantic reasons.
+
+## Other Inline Text Elements
+
+Source: https://web.dev/learn/html/inline-text
+
+The `<code>` element is for displaying inline monospaced code. It can be wrapped in a preformatted text `<pre>` element, which respects whitespace and newline characters. Sample program output should be wrapped in `<samp>`.
+
+Variables in an equation or mathematical expression, but not in program code, can be marked up with `<var>`. Also consider using MathML or Mathematical Markup Language when displaying a lot of math on a webpage.
+
+The `<data>` element should be used when associating human-readable text with a machine-readable value. For example, `<li>Item #2: <data value="2">Banana</data>, $1.99</li>` lists a banana on a menu with a `value` attribute that JavaScript can read as an index into an array that gives information about each menu item.
+
+The `<time>` element should be used for displaying a period in time, whether that be dates or times. The `datetime` attribute formats the text content as a machine-friendly format, which helps with features like calendars or easy parsing with JavaScript.
+
+The keyboard input `<kbd>` element displays instructions for the user that include keyboard input, voice input, or some other input. For example, `<p>Press <kbd>Enter</kbd> to continue.</p>`.
+
+The superscript `<sup>` and subscript `<sub>` elements are available.
+
+Content can be "deleted" from a page using the `<del>` element, along with a `cite` attribute that links to a resource that explains the deletion, and a `datetime` attribute specifying when the change happened. The deleted content will not actually disappear from the page, but accessibility technologies won't acknowledge it. Similarly, the `<ins>` element can be used to "insert" content into a page using the same attributes. The strikethrough `<s>` element indicates to the user that the content is outdated or should no longer be considered.
+
+Abbreviations should be marked with `<abbr>`. If it is the first time the abbreviation has been used, then expand it on first occurrence. If an abbreviation is used but there is no inline expansion, the `title` attribute can be used to note the expansion.
+
+Use `<dfn>` to define a new term.
+
+The `<em>` element is used to emphasize content, and can be nested to indicate even greater emphasis. The `<mark>` element, in a physical sense, can be though of as highlighting text on a piece of paper. For example, finding search terms using CTRL + F on Windows. The `<string>` element should be used in cases of seriousness or urgency, to differentiate it from `<em>` text.
+
+The `<u>` element was traditionally used for underlined text, but as know we should use CSS for non-semantic stuff. The element is now used for "non-textual annotations," such as underlining a misspelled word in a spell-checker program with a wavy red line.
+
+The `<i>` element was traditionally used for italicized text, but as know we should use CSS for non-semantic stuff. The element is now used for text that doesn't follow the tone of its surrounding text, such as a thought, definition, technical term, etc. Most of the time, some other element is better suited.
+
+The `<hr>` element is a horizontal rule, which semantically indicates a tangential continuation of the content, or a separation between main ideas or topics, such as a sudden shift in character perspectives in a novel.
+
+Alert the browser that it may break a long word onto separate lines at specific character indicies using `<wbr>`. For example, typing a 64-bit binary number is a lot of characters in a row. Give the browser an option to break it up if necessary at 8-bit intervals.
