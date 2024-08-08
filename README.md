@@ -23,8 +23,9 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Tables](#tables)  
 [Forms](#forms)  
 [Images](#images)  
-[Audio and Video](#audio-and-video)
-[Other Inline Text Elements](#other-inline-text-elements)
+[Audio and Video](#audio-and-video)  
+[Other Inline Text Elements](#other-inline-text-elements)  
+[Details and Summary](#details-and-summary)
 
 ## Overview of HTML
 
@@ -314,3 +315,11 @@ The `<i>` element was traditionally used for italicized text, but as know we sho
 The `<hr>` element is a horizontal rule, which semantically indicates a tangential continuation of the content, or a separation between main ideas or topics, such as a sudden shift in character perspectives in a novel.
 
 Alert the browser that it may break a long word onto separate lines at specific character indicies using `<wbr>`. For example, typing a 64-bit binary number is a lot of characters in a row. Give the browser an option to break it up if necessary at 8-bit intervals.
+
+## Details and Summary
+
+Source: https://web.dev/learn/html/details
+
+A relatively recent addition to HTML is the `<details>` element, which is a heading that can be clicked to reveal more text below it. For example, in an FAQ section, clicking on a question might open a paragraph of text that gives the answer. This is called a "disclosure" widget. These widgets may be nested inside each other to make up an "accordian" widget.
+
+Similar to `<caption>` or `<legend>`, the first child of `<details>` should be a `<summary>` element, which is the clickable label that expands the disclosure. All elements following `<summary>` will then be displayed. The `open` boolean attribute dictates whether it's expanded.
