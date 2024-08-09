@@ -24,6 +24,7 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Forms](#forms)  
 [Images](#images)  
 [Audio and Video](#audio-and-video)  
+[Focus](#focus)  
 [Other Inline Text Elements](#other-inline-text-elements)  
 [Details and Summary](#details-and-summary)  
 [Dialog](#dialog)
@@ -284,6 +285,20 @@ The `<video>` element embeds a video on the webpage. It should include the `cont
 The `<video>` element can either have a `src` attribute, or wrap a list of `<source>` elements, similar to the `<picture>` element. The `<track>` element also exists for things like subtitles, chapters, and other metadata.
 
 The `<audio>` element has many of the same considerations as the `<video>` element. Videos can play audio content, but audio cannot play video content. Regardless, `<audio>` should still be used for semantic reasons.
+
+## Focus
+
+Source: https://web.dev/learn/html/focus
+
+Interactive elements include form controls, links, and buttons are focusable and tabbable by default. Another term for an element that is not interactive is `inert`, which is also a global attribute.
+
+The `tabindex` attribute dictates whether an element is tabbable and focusable. Non-inert elements are tabbed to in the order that they're declared in HTML, unless edited with `tabindex` or CSS.
+
+If `tabindex="0"`, then the element will be added into the natural tab order as it appears in HTML. If `tabindex="-1"`, then the element will be removed from the tab order, but will still be focusable. If `tabindex=">0"`, then the element's tab order will have priority, where `tabindex=1` is the greatest priority. Tab priority should generally be avoided, since it usually results in a poor and jarring user experience.
+
+The global `contenteditable` attribute makes an element tabbable and focusable, along with its other effects.
+
+The `disabled` attribute affects form controls in the following ways: untabbable and unfocusable, unable to receive input events, and excluded from form submissions.
 
 ## Other Inline Text Elements
 
