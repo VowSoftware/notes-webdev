@@ -25,7 +25,8 @@ Please click the ☆ button on GitHub if this repository is helpful. Thank you!
 [Images](#images)  
 [Audio and Video](#audio-and-video)  
 [Other Inline Text Elements](#other-inline-text-elements)  
-[Details and Summary](#details-and-summary)
+[Details and Summary](#details-and-summary)  
+[Dialog](#dialog)
 
 ## Overview of HTML
 
@@ -323,3 +324,21 @@ Source: https://web.dev/learn/html/details
 A relatively recent addition to HTML is the `<details>` element, which is a heading that can be clicked to reveal more text below it. For example, in an FAQ section, clicking on a question might open a paragraph of text that gives the answer. This is called a "disclosure" widget. These widgets may be nested inside each other to make up an "accordian" widget.
 
 Similar to `<caption>` or `<legend>`, the first child of `<details>` should be a `<summary>` element, which is the clickable label that expands the disclosure. All elements following `<summary>` will then be displayed. The `open` boolean attribute dictates whether it's expanded.
+
+## Dialog
+
+Source: https://web.dev/learn/html/dialog
+
+The `<dialog>` element is not displayed by default. To open a dialog, call `HTMLDialogElement.open()` or alternatively add the `open` attribute to the `<dialog>` element.
+
+A modal dialog is a popup box that disables the user from interacting with anything else until the dialog is closed. A non-modal dialog is a popup box that doesn't distrupt user interaction. Great care and consideration should be taken when using a modal dialog, as it is almost always annoying to the user.
+
+There are three ways to close a modal dialog: pressing escape on the keyboard, submitting a form with `method="dialog"` or `formmethod="dialog"` on the submit button, or using the `HTMLDialogElement.close()` method. The escape key does not close a non-modal dialog, so be sure to include at least one other way.
+
+The `HTMLDialogElement` API has three methods to consider: `dialog.show()` for non-modal dialogs, `dialog.showModal()` for modal dialogs, and `dialog.close()`.
+
+The global `inert` attribute disables an element, along with all nested elements, which makes them non-interactable. This is what implicitly happens when a modal dialog box pops up. Modal dialogs also obscure the background with a backdrop, which of course may be styled with CSS.
+
+A form with the `method="dialog"` attribute doesn't submit the data to the server. Instead, it maintains the state of the user's input, while still closing the dialog. To submit a form without validation, use the `novalidate` attribute.
+
+By default, the first focusable element in a dialog will receive focus. To change this, use the `autofocus` attribute, whether in a dialog or just on a page in general. If more than one `autofocus` attributes exist within a context, then only the first one will be respected.
